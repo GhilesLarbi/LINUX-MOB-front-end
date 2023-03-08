@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinuxMob : account</title>
+
+    <link rel="shortcut icon" href="../images/logos/logo.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="../style/fontawsome5.css">
+    <link rel="stylesheet" href="../style/general.css">
+    <link rel="stylesheet" href="../style/account.css">
+
+    <script defer src="../scripts/data.js"></script>
+    <script defer src="../scripts/general.js"></script>
+    <script defer src="../scripts/account.js"></script>
+</head>
+
+<body>
+    <!-- dashbord -->
+    <main class="dash">
+        <div class="dash-left">
+            <div class="dash-img-box">
+                <img src="../images/avatars/avatar.svg" alt="" class="dash-img">
+                <div class="edit-img-box">
+                    <button class="edit-img-btn" aria-label="show account image settings">
+                        <i class="fas fa-edit" role="none"></i>
+                    </button>
+
+                    <div class="edit-imgs" role="dialog" aria-expanded="false">
+                        <img src="../images/avatars/avatar1.svg" class="edit-img">
+                        <img src="../images/avatars/avatar2.svg" class="edit-img">
+                        <img src="../images/avatars/avatar3.svg" class="edit-img">
+                        <img src="../images/avatars/avatar4.svg" class="edit-img">
+                        <img src="../images/avatars/avatar5.svg" class="edit-img">
+                        <img src="../images/avatars/avatar6.svg" class="edit-img">
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="dash-name">User Name</h2>
+
+            <div class="dash-controls" role="navigation">
+                <button class="dash-control select" aria-label="go to account tab">
+                    <i class="fa fa-home" role="none"></i>
+                    <span>Account</span>
+                </button>
+                <button class="dash-control" aria-label="go to password tab">
+                    <i class="fa fa-key" role="none"></i>
+                    <span>Password</span>
+                </button>
+                <button class="dash-control" aria-label="go to purchases tab">
+                    <i class="fa fa-shopping-bag"></i>
+                    <span>Purchases</span>
+                </button>
+                <button class="dash-control" aria-label="go to notifications tab">
+                    <i class="fa fa-bell" role="none"></i>
+                    <span>Notification</span>
+                </button>
+                <button class="dash-control" aria-label="go to about tab">
+                    <i class="fa fa-info-circle" role="none"></i>
+                    <span>About</span>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="dash-right">
+            <header class="dash-header">
+
+                <div class="tab-titles">
+                    <h1 class="tab-title select" role="heading">Account Settings</h1>
+                    <h1 class="tab-title" role="none">Password Setting</h1>
+                    <h1 class="tab-title" role="none">Purchases</h1>
+                    <h1 class="tab-title" role="none">Notification</h1>
+                    <h1 class="tab-title" role="none">About Us</h1>
+                </div>
+
+                <div class="dash-header-btns">
+                    <button type="checkbox" class="toggle-mode" title="toggle colors" role="checkbox" aria-label="toggle colors">
+                        <span class="toggle-mode-icon" role="none">
+                            <i class="fa fa-moon moon-icon"></i>
+                            <i class="fa fa-sun sun-icon"></i>
+                        </span>
+                    </button>
+                    <a href="../index.html" class="dash-header-link">Home</a>
+                    <a href="shop.html" class="dash-header-link">Shop</a>
+                    <button class="btn btn--secondary btn-outline dash-btn logout-btn">Log out</button>
+                </div>
+            </header>
+
+            <div class="dash-tabs-container">
+
+                <section class="dash-tab account-tab select">
+                    <form class="account-form">
+
+                        <div class="input-box">
+                            <label for="name" class="label">
+                                First Name
+                            </label>
+                            <input type="text" id="name" class="dash-input" placeholder="User">
+                        </div>
+                        <div class="input-box">
+                            <label for="lastname" class="label">
+                                Last Name
+                            </label>
+                            <input type="text" id="lastname" class="dash-input" placeholder="Name">
+                        </div>
+
+
+                        <div class="input-box">
+                            <label for="email" class="label">
+                                Email
+                            </label>
+                            <input type="email" id="email" class="dash-input" placeholder="Example@example.com">
+                        </div>
+                        <div class="input-box">
+                            <label for="tel" class="label">
+                                Phone Number
+                            </label>
+                            <input type="tel" id="tel" class="dash-input" placeholder="+213 123456789">
+                        </div>
+
+
+                        <div class="input-box">
+                            <label for="address" class="label">
+                                Address
+                            </label>
+                            <input type="text" id="address" class="dash-input" placeholder="Algeria">
+                        </div>
+                        <div class="input-box">
+                            <label for="designation" class="label">
+                                Designation
+                            </label>
+                            <input type="text" id="designation" class="dash-input" placeholder="Ui/Ux Designer">
+                        </div>
+                        <button class="btn btn--primary btn--medium account-update-btn cta-btn" disabled>Update</button>
+                        <button class="link delete-account-link">delete account</button>
+                    </form>
+                </section>
+
+                <section class="dash-tab password-tab">
+                    <form class="password-form">
+
+                        <div class="input-box">
+                            <label for="password" class="label">
+                                Your Password
+                            </label>
+                            <input type="text" id="password" class="dash-input" placeholder="ur old silly cheap pass">
+                        </div>
+
+                        <div class="input-box">
+                            <label for="new-password" class="label">
+                                New Password
+                            </label>
+                            <input type="text" id="new-password" class="dash-input" placeholder="the new bright one">
+                        </div>
+                        <div class="input-box">
+                            <label for="confirm-password" class="label">
+                                Confirm New Password
+                            </label>
+                            <input type="text" id="confirm-password" class="dash-input"
+                                placeholder="i dunno why, but u have to">
+                        </div>
+
+                        <button class="btn btn--primary btn--medium cta-btn password-update-btn"
+                            disabled>Update</button>
+                    </form>
+                    <div class="password-comment-box">
+                        <p class="password-comment">I have no idea why i added those <span>placeholders</span>. They
+                            seem to add some visual balance to the design just like this text. <br> Better to find
+                            <span>a legit way</span> to clean up this trash rather than keep it that
+                            way..
+                        </p>
+                    </div>
+                </section>
+
+                <section class="dash-tab selles-tab">
+                    <div class="sell-cards" role="list">
+                    </div>
+                    <div class="sell-confirm">
+                        <h3 class="sell-total-price-text">
+                            Total Price <strong class="sell-total-price">$1425</strong>
+                        </h3>
+                        <div class="before-buy">
+                            <h4 class="before-buy-heading">Before you buy</h4>
+                            <p class="before-buy-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                Dicta aliquid necessitatibus, repellendus unde non vero dignissimos exercitationem
+                                reiciendis magnam esse.</p>
+
+                            <div class="before-by-agree save-input">
+                                <input type="checkbox" id="agree">
+                                <label for="agree">i agreed to conditions above</label>
+                            </div>
+
+                            <button class="btn btn--primary btn--medium buy-product-btn">Buy Products</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="dash-tab notif-tab">
+                    <p role="alert">You don't have notifications</p>
+                </section>
+
+                <section class="dash-tab about-tab">
+                    <div class="about-left">
+                        <p class="about-heading" role="heading">Group Mambers</p>
+                        <ul class="mambers">
+                            <li class="mamber">Ghilas Larbi</li>
+                            <li class="mamber">Karim Khelfaoui</li>
+                            <li class="mamber">Liticia Larbi</li>
+                            <li class="mamber">Gana Sehaki</li>
+                            <li class="mamber">Nacer Laribi</li>
+                            <li class="mamber">Ma3labalich Imane</li>
+                            <li class="mamber">Ghilas Laskri</li>
+                            <li class="mamber">Amar Taleb</li>
+                        </ul>
+                    </div>
+                    <div class="about-right">
+                        <p class="about-heading" role="heading">Technologies used</p>
+                        <ul class="techons">
+                            <li class="techno">HTML5</li>
+                            <li class="techno">CSS3</li>
+                            <li class="techno">JavaScript ES6</li>
+                            <li class="techno">FontAwsome 5</li>
+                        </ul>
+                    </div>
+                </section>
+                <img src="../images/accents/accent-1.svg" class="tab-accent1" role="none" aria-hidden="true">
+            </div>
+
+        </div>
+    </main>
+</body>
+
+</html>

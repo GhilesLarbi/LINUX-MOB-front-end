@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinuxMob : shop and buy</title>
+
+    <link rel="shortcut icon" href="../images/logos/logo.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="../style/fontawsome5.css">
+    <link rel="stylesheet" href="../style/general.css">
+    <link rel="stylesheet" href="../style/shop.css">
+
+    <script defer src="../scripts/data.js"></script>
+    <script defer src="../scripts/general.js"></script>
+    <script defer src="../scripts/shop.js"></script>
+</head>
+
+<body>
+    <aside class="top-message-box" role="alert">
+        <p class="top-message">
+            To actually buy a product you have to create a fully <a href="#" class="top-message-link"
+                data-modular-log="sign">active account.</a> if you already have one then
+            <a href="#" class="top-message-link" data-modular-log>log in.</a>
+        </p>
+        <button class="top-message-btn" aria-label="close">
+            <i class="fa fa-times" role="none"></i>
+        </button>
+    </aside>
+    <!-- main contnet -->
+    <main>
+        <!-- navbar -->
+        <header class="header">
+            <div class="container header-container">
+                <a href="../index.html" class="logo-box" title="Home Page" aria-label="PhoneMob logo">
+                    <svg role="none" width="16px" height="16px" viewBox="0 0 16 16" fill="currentColor" class="logo">
+                        <path d="M0 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3zm9.5 5.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm-6.354-.354a.5.5 0 1 0 .708.708l2-2a.5.5 0 0 0 0-.708l-2-2a.5.5 0 1 0-.708.708L4.793 6.5 3.146 8.146z"/>
+                    </svg>
+                </a>
+
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="search for anything">
+                    <button class="search-btn" aria-label="search">
+                        <i class="fa fa-search" role="none"></i>
+                    </button>
+                </div>
+
+                <nav class="navbar">
+                    <ul class="navbar-links">
+                        <li class="navbar-item header-toggle">
+                            <button type="checkbox" class="toggle-mode" title="toggle colors" role="checkbox" aria-label="toggle colors">
+                                <span class="toggle-mode-icon" role="none">
+                                    <i class="fa fa-moon moon-icon"></i>
+                                    <i class="fa fa-sun sun-icon"></i>
+                                </span>
+                            </button>
+                        </li>
+                        <li class="navbar-item nav-hide-m">
+                            <a href="#section-devices" class="navbar-link">
+                                Devices
+                            </a>
+                        </li>
+                        <li class="navbar-item nav-hide-m">
+                            <a href="#section-gadgets" class="navbar-link">
+                                Gadgets
+                            </a>
+                        </li>
+                        <li class="navbar-item header-btns">
+                            <button class="btn btn--primary btn--small" data-modular-log>
+                                Login
+                            </button>
+                            <button class="btn btn--secondary btn--small btn-outline" data-modular-log="sign">
+                                Sign Up
+                            </button>
+                            <a href="account.html" class="header-user" title="Account Settings" aria-label="go to account page">
+                                <img src="../images/avatars/avatar.svg" class="header-user-img" data-rootPath="../" alt="account image">
+                            </a>
+                        </li>
+                        <li class="navbar-item header-cart">
+                            <button class="cart-btn" title="Add items to cart" aria-label="show cart">
+                                <i class="fa fa-shopping-cart cart-icon" role="none"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+
+                <button class="navbar-menu-btn" aria-label="show or hide the menu">
+                    <div class="line line1" role="none"></div>
+                    <div class="line line2" role="none"></div>
+                    <div class="line line3" role="none"></div>
+                </button>
+            </div>
+        </header>
+
+        <!-- new-device section -->
+        <section class="section-new">
+            <div class="container">
+                <div class="new-container">
+                    <div class="new-device" aria-label="40% off the original price">
+                        <div class="new-device-text">
+
+                            <h1 class="new-device-name">Librem 5</h1>
+                            <h2 class="heading-1">Our new
+                                deal&MediumSpace;</h2>
+                            <p class="new-device-description">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo assumenda dolorem tenetur
+                                eveniet dolorum ea, officiis minima porro omnis culpa.
+                            </p>
+
+                            <div class="new-device-bottom">
+                                <button class="btn btn--primary new-device-btn">Add to cart</button>
+                                <p class="new-device-price">
+                                    <span class="before-price">123$</span>
+                                    <span class="after-price">453$</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="new-device-img-box">
+                            <img src="../images/phones/vollaPhoneX.png" class="new-device-img">
+                        </div>
+
+                    </div>
+
+                    <div class="popular-gadgets">
+                        <h2 class="popular-gadget-heading">
+                            See our best Gadgets
+                        </h2>
+                    </div>
+
+                    <div class="daily-deal">
+                        <h2 class="daily-deal-heading">
+                            <strong>Deal</strong> of the day
+                        </h2>
+
+                        <div class="daily-deal-img-box">
+                            <img src="../images/phones/Fairphone2.png" class="daily-deal-img">
+                            <img src="../images/phones/Fairphone2.png" class="daily-deal-img">
+                        </div>
+
+
+                        <p class="daily-deal-name">Lorem ipsum dolor sit amet.</p>
+                        <div class="daily-deal-bottom">
+                            <p class="daily-deal-price">
+                            </p>
+                            <button class="btn btn--primary btn--small daily-deal-btn">add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+
+    <!-- devices section -->
+    <section class="section-devices" id="section-devices">
+        <div class="container">
+            <h3 class="heading-3">
+                All linux devices
+            </h3>
+
+            <div class="devices">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- gadgets section -->
+    <section class="section-gadgets" id="section-gadgets">
+        <div class="container">
+            <h3 class="heading-3">
+                Gadgets for Linux phones
+            </h3>
+
+            <div class="gadget-container">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- footer -->
+    <footer class="footer" id="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <p class="footer-col-heading" role="heading">
+                    Account
+                </p>
+
+                <ul class="footer-links">
+                    <li>
+                        <a href="#" class="footer-link" data-modular-log>
+                            Log in
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link" data-modular-log="sign">
+                            Sign up
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link" data-modular="This page doesn't exist">
+                            Redeem a Gift Card
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <p class="footer-col-heading" role="heading">
+                    Company
+                </p>
+
+                <ul class="footer-links">
+                    <li>
+                        <a href="#" class="footer-link" data-modular="This page doesn't exist">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link" data-modular="This page doesn't exist">
+                            Factories
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link" data-modular="This page doesn't exist">
+                            Careers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link" data-modular="This page doesn't exist">
+                            International
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link" data-modular="This page doesn't exist">
+                            Accessibility
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <p class="footer-col-heading" role="heading">
+                    Get Help
+                </p>
+
+                <ul class="footer-links">
+                    <li>
+                        <a href="#" class="footer-link" data-modular="This page doesn't exist">
+                            Help Center
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link" data-modular="This page doesn't exist">
+                            Return Policy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link" data-modular="This page doesn't exist">
+                            Shipping Info
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link" data-modular="This page doesn't exist">
+                            Bulk Orders
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-contact-col">
+                <form class="footer-contact">
+                    <label for="footer-email-input" class="footer-email-label">
+                        Recive informations about new linux phones
+                    </label>
+                    <div class="footer-input-box">
+                        <input type="email" id="footer-email-input" class="footer-email-input"
+                            placeholder="Enter Your Email">
+                        <button class="footer-btn" data-modular="This page doesn't exist">Submit</button>
+                    </div>
+                </form>
+
+                <div class="footer-social">
+                    <p class="footer-col-heading" role="heading">
+                        Follow Us
+                    </p>
+
+                    <div class="footer-social-links" role="list">
+
+                        <a href="#" class="footer-social-link" data-modular="This page doesn't exist" aria-label="follow us in facebook">
+                            <i class="fa-brands fa-facebook-square" role="none"></i>
+                        </a>
+                        <a href="#" class="footer-social-link" data-modular="This page doesn't exist" aria-label="follow us in twitter">
+                            <i class="fa-brands fa-twitter-square" role="none"></i>
+                        </a>
+                        <a href="#" class="footer-social-link" data-modular="This page doesn't exist" aria-label="follow us in instagram">
+                            <i class="fa-brands fa-instagram-square" role="none"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

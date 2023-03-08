@@ -1,0 +1,719 @@
+/* dash bord */
+body {
+    width: 100vw;
+    padding: 2.4rem;
+    background-color: var(--dark-3);
+    overflow: hidden;
+}
+
+/* dashboard */
+.dash {
+    box-shadow: 0 .4rem 2rem rgba(0, 0, 0, 0.3);
+    border-radius: .8rem;
+    height: calc(100vh - 2*2.4rem);
+
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+
+.light-mode .dash {
+    box-shadow: 0 .4rem 2rem rgba(0, 0, 0, 0.03);
+}
+
+/* dash left */
+.dash-left {
+    padding: 2.4rem 0 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark-2);
+}
+
+.dash-img-box {
+    width: 50%;
+    margin: 0 auto 2.4rem;
+    position: relative;
+}
+
+.dash-img-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--dark-3);
+    transform: translate(-10%, 2%);
+    transition: border-color .3s;
+}
+
+.dash-img {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+
+.edit-img-box {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.edit-img-btn {
+    color: var(--text-slight);
+    padding: .4rem;
+    display: flex;
+    margin-right: -.4rem;
+    font-size: 1.4rem;
+}
+
+.edit-imgs {
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translateX(-53%);
+    z-index: 99;
+    display: flex;
+    gap: 1.2rem;
+
+    background-color: var(--dark-3);
+    padding: 1.2rem;
+    border-radius: .8rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: var(--toggle-transition), opacity .2s, visibility .2s;
+
+}
+
+.edit-imgs::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent var(--dark-3);
+    transition: var(--toggle-transition);
+}
+
+.show.edit-imgs {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.edit-img {
+    flex-shrink: 0;
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--toggle-transition), transform .1s;
+}
+
+.edit-img:hover {
+    transform: scale(1.1);
+}
+
+.dash-name {
+    text-align: center;
+    margin-bottom: 4.8rem;
+    font-size: 2.4rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: var(--text-important);
+}
+
+.dash-controls {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dash-control {
+    padding: 1.6rem 3.2rem;
+    display: flex;
+    color: var(--text-normal);
+    gap: 1.6rem;
+    
+}
+
+.dash-control:hover, .dash-control:focus{
+    background-color: rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+.select.dash-control {
+    background-color: var(--primary) !important;
+    color: var(--text-on-primary) !important;
+    cursor: auto;
+    pointer-events: none;
+}
+
+
+/* dash right */
+.dash-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.dash-header {
+    padding: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--dark-2);
+    border-left: 2px solid var(--dark-1);
+    transition: var(--toggle-transition), border-color .3s;
+}
+
+.tab-titles {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.tab-title {
+    width: max-content;
+    position: absolute;
+    font-size: 3rem;
+    font-weight: 600;
+    transform: translateY(150%);
+
+    visibility: hidden;
+    transition: var(--toggle-transition), transform .2s, visibility .2s;
+}
+
+.select.tab-title {
+    visibility: visible;
+    transform: translateY(0);
+    transition: var(--toggle-transition), transform .2s .2s, visibility .2s .2s;
+}
+
+.dash-header-btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.4rem;
+}
+
+
+.dash-btn {
+    font-size: 1.4rem;
+    padding: .8rem 1.2rem;
+}
+
+.dash-header-link {
+    color: var(--text-slight);
+    font-size: 1.6rem;
+}
+
+.dash-header-link:hover {
+    color: var(--primary);
+}
+
+.dash-tabs-container {
+    flex-grow: 1;
+    position: relative;
+}
+
+.tab-accent1 {
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    z-index: 1;
+    transform: rotate(90deg);
+    opacity: .1;
+    pointer-events: none;
+}
+
+.light-mode .tab-accent1 {
+    opacity: .08;
+}
+
+.dash-tab {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-1);
+    padding: 4.8rem;
+    overflow: scroll;
+
+    visibility: hidden;
+    /* clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); */
+    clip-path: circle( 0 at 50% 50%);
+    transition: var(--toggle-transition), clip-path 0s .5s, visibility 0s .5s;
+}
+
+.select.dash-tab {
+    visibility: visible;
+    /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); */
+    clip-path: circle(100%);
+    z-index: 1;
+    transition: var(--toggle-transition), clip-path .4s;
+}
+
+
+/* ############ */
+/* account tab */
+/* ############ */
+
+.account-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4.8rem 6.4rem;
+    margin-top: 2.4rem;
+}
+
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    outline-color: transparent;
+    transition: var(--toggle-transition), outline .4s;
+}
+
+.error.input-box{
+    outline: 1px solid red;
+    border-radius: .4rem 0 .4rem .4rem;
+}
+
+.input-box::before{
+    content: attr(data-error-message);
+    font-size: 1.4rem;
+    line-height: 1;
+    padding: .4rem .8rem;
+    background-color: red;
+    color: var(--uwhite-1);
+
+    position: absolute;
+    bottom: 100%;
+    right: -1px;
+    border-radius: .4rem .4rem 0 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: var(--toggle-transition), opacity .2s;
+}
+
+.error.input-box::before{
+    opacity: 1;
+}
+
+
+
+.label {
+    position: absolute;
+    bottom: calc(100% + 1.2rem);
+    font-size: 1.4;
+    line-height: 1;
+}
+
+.dash-input {
+    flex-grow: 1;
+    background-color: var(--dark-1);
+
+    border: 2px solid var(--dark-2);
+
+    padding: 1.2rem 1.6rem;
+    font-size: 1.6rem;
+    color: var(--text-normal);
+    border-radius: .4rem;
+    margin-bottom: 0;
+}
+.empty.dash-input {
+    background-color: var(--dark-2);
+}
+
+.cta-btn {
+    width: max-content;
+    margin-top: 1.6rem;
+    transition: var(--toggle-transition), opacity .3s;
+}
+.cta-btn:disabled {
+    opacity: .4;
+    cursor: auto;
+}
+
+.delete-account-link {
+    color: var(--text-slight);
+    width: fit-content;
+    height: fit-content;
+    align-self: end;
+    justify-self: right;
+    margin-right: 2.4rem;
+}
+
+
+
+
+
+
+
+
+
+/* ############# */
+/* password tab */
+/* ############# */
+.password-tab {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6.4rem;
+}
+
+
+.password-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5.2rem;
+    margin-top: 2.4rem;
+}
+
+.password-comment {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.3;
+    color: var(--dark-9);
+}
+
+.password-comment strong {
+    color: var(--white-7);
+}
+
+.password-comment span {
+    color: var(--white-9);
+    text-decoration: underline;
+    cursor: help;
+}
+
+
+/* ############# */
+/* selles tab */
+/* ############# */
+.selles-tab {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6.4rem;
+}
+
+.no-items-box {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--dark-3);
+}
+
+.sell-cards {
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    border-radius: .8rem;
+}
+
+.sell-card {
+    background-color: var(--dark-2);
+    padding: 1.6rem;
+    border-radius: .8rem;
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.sell-img {
+    display: block;
+    width: 3.2rem;
+    object-fit: contain;
+}
+
+.sell-card-info {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0 2.4rem;
+}
+
+.sell-name {
+    font-weight: 500;
+}
+
+.sell-price {
+    font-size: 1.6rem;
+}
+
+.sell-quantity {
+    font-size: 1.4rem;
+    color: var(--text-slight);
+}
+
+.sell-total-price-text {
+    font-size: 2.4rem;
+    font-weight: 400;
+    margin-bottom: 3.2rem;
+    color: var(--text-normal);
+}
+.sell-total-price {
+    font-weight: 600;
+    margin-left: .4rem;
+}
+
+.before-buy-heading {
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: .8rem;
+}
+
+.before-buy-description {
+    color: var(--text-slight);
+    margin-bottom: 1.6rem;
+}
+
+.before-by-agree {
+    margin-bottom: 4.8rem;
+    display: flex;
+    justify-content: left;
+}
+
+.before-by-agree label {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--text-slight);
+    cursor: pointer;
+}
+
+.sell-btns {
+    display: flex;
+    gap: 1.6rem;
+}
+
+
+/* notification tab */
+.notif-tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notif-tab p {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--dark-3);
+    text-align: center;
+}
+
+
+/* about tab */
+.about-tab {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6.4rem;
+}
+
+
+.about-heading {
+    color: var(--dark-5);
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 1.2rem;
+}
+
+.mambers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6rem;
+}
+
+.mamber {
+    background-color: var(--dark);
+    text-align: center;
+    padding: 1.2rem 0;
+    border-radius: .4rem;
+    font-size: 1.6rem;
+    color: var(--white-8);
+    letter-spacing: .1px;
+}
+
+.techons {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.techno {
+    font-size: 1.4rem;
+    background-color: var(--primary-o3);
+    line-height: 1;
+    padding: .8rem 1.6rem;
+    border-radius: 10rem;
+    color: var(--text-slight);
+    letter-spacing: 1px;
+}
+
+
+/*#####################*/
+/*     responsive      */
+/*#####################*/
+
+/* 900px */
+@media (max-width:56.25em) {
+    .edit-imgs {
+        transform: translateX(-30%);
+    }
+
+    .edit-imgs::after {
+        left: 27%;
+    }
+    
+
+    .dash-tab {
+        padding: 2.4rem;
+    }
+    .account-form {
+        gap: 4.8rem 2.4rem;
+    }
+
+    .password-tab, .selles-tab , .about-tab {
+        gap: 2.4rem;
+    }
+}
+
+/* 750px */
+@media (max-width:46.875em) {
+    .dash {
+        grid-template-columns: 1fr 9fr;
+    }
+
+    .edit-img-box {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    .edit-img-btn {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+
+    .edit-imgs {
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 0.8rem;
+    }   
+
+    .edit-img {
+        width: 3.2rem;
+        height: 3.2rem;
+    }
+    
+    .dash-name {
+        font-size: 1.6rem;
+    }
+    .dash-control span {
+        display: none;
+    }
+
+    .tab-accent1 {
+        bottom: -3%;
+        right: -3%;
+        transform: rotate(90deg) scale(.7);
+    }
+
+}
+
+
+/* 600px */
+@media (max-width:37.5em) {
+    body {
+        padding: 1.2rem;
+    }
+    .dash {
+        height: calc(100vh - 2*1.2rem);
+    }
+    
+    .dash-header {
+        padding: 1.2rem;
+        justify-content: right;
+    }
+
+    .tab-titles {
+        display: none;
+    }
+
+    .dash-tab {
+        padding: 2.4 1.6rem;
+    }
+
+    .account-form {
+        grid-template-columns: 1fr;
+    }
+
+    .password-tab {
+        grid-template-columns: 1fr;
+    }
+    
+    .password-comment-box {
+        display: none;
+    }
+
+    .selles-tab {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .sell-cards {
+        overflow-y: visible;
+        height: max-content;
+    }
+
+    .notif-tab p, .no-items-box {
+        font-size: 2.4rem;
+    }
+
+    .about-tab {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 500px */
+@media (max-width:31.25em) {
+    body {
+        padding: 0;
+    }
+
+    .dash {
+        height:100vh;
+        border-radius: 0;
+        grid-template-columns: 1fr 15fr;
+    }
+
+    .dash-name {
+        display: none;
+    }
+
+    .dash-control {
+        padding: 1.6rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dash-header-btns {
+        gap: 1.2rem;
+    }
+}

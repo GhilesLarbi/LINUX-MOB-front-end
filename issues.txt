@@ -1,0 +1,87 @@
+######################## ISSUES ################################
+// cannot be fixed
+localStorage API doesn't work properly without a server (localHost)
+
+
+// need to be fixed
+add  :
+    -serif font for headlines (design)
+    -description for all products to use it with "alt" atribute in images (accesibility)
+
+
+fix the javascript and make it clean
+fix some compatibility issues (gap in Safari)
+Fix the design of the account page and make it consistent with other pages (design)
+fix the tab order (accesibility)
+
+
+
+
+
+######################### FIXED ##############################
+the delay time of .write-effect is too short (design)
+    (fixed by adding data-start-speed atribute)
+
+
+add the device-card styling to general.css
+    (done)
+
+
+add costumization to scrollBar (design)
+    (done, with some compatibility issues, Safari)
+
+
+fix the consistency of the design by making it less round & changing solid icons with regular or thin (design)
+    (done with the design, still using solid icons)
+
+
+add font for regular text ,Roboto or Nunito (design)
+    (done, choosing Roboto)
+
+
+add more custimization to device-card (design)
+    (done)
+
+
+make the device-card data fetch from a JSON file
+    (doesn't work without a server, localHost)
+    (fixed by adding seperate JS file, data.js)
+
+
+fix social icons (design)
+    (fixed by adding fontawsome library and use it as a global icon resource instead of SVG images)
+
+
+fix btn-cut-effect and make it work in any size (design)
+    (removing the effect because of consistency)
+
+
+add a Cart shoping
+    (done)
+
+
+add prices to device cards
+    (done)
+
+
+fix login and signup modal
+    (done)
+
+
+add a favicon
+    (done)
+
+fix the responsivness of the account page (design, accesibility)
+    (done)
+
+add focus state for buttons and inputs (accesibility)
+    (adding a box-shadow instead of the default outline to match de radius of the BOX Model of an element)
+
+add a hover effect for .btn--primary .btn--secondary (accesibility, design)
+    (done)
+
+add role atribute to non-semantic elements (accesibility)
+    (done)
+
+add aria-label atribute to non-readable elements like interractive icons (accesibility)
+    (done)

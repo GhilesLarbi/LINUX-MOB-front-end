@@ -1,0 +1,647 @@
+/* general */
+*[class|="section"] {
+    padding: 12.8rem 0;
+}
+
+/*#####################*/
+/*     Hero section    */
+/*#####################*/
+
+.section-hero {
+    padding-top: 8rem;
+}
+
+.hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4.8rem;
+}
+
+.hero-description {
+    margin-bottom: 4.8rem;
+    font-size: 2rem;
+}
+
+.hero-btns {
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+    margin-bottom: 1.6rem;
+}
+
+.no-credit-card-text {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    color: var(--text-slight);
+}
+
+/* 3d phone */
+.box-3d-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 100rem;
+    pointer-events: none;
+}
+
+.box-3d {
+
+    --width : 23rem;
+    --height : 38rem;
+    --depth : 5rem;
+    width: var(--width);
+    height: var(--height);
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate-3d 15s infinite linear;
+}
+
+@keyframes rotate-3d {
+    0% {
+        transform: rotateY(-50deg);
+    }
+
+    100% {
+        transform: rotateY(310deg);
+    }
+}
+
+.front-face, .back-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    background-color: var(--uwhite-4);
+    transform-style: preserve-3d;
+}
+
+.front-face {
+    transform: translateZ(var(--depth));
+}
+
+.front-face::before, .front-face::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: calc(2 * var(--depth));
+}
+
+.front-face::before {
+    left: 0;
+    transform: rotateY(90deg);
+    transform-origin: left;
+}
+.front-face::after {
+    right: 0;
+    transform: rotateY(-90deg);
+    transform-origin: right;
+}
+
+
+.back-face {
+    transform: translateZ(calc(-1 * var(--depth))) rotateY(180deg);
+
+}
+
+.back-face::before, .back-face::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: calc(2 * var(--depth));
+    width: 100%;
+    background-color: var(--primary);
+}
+
+.back-face::before {
+    top: 0;
+    transform: rotateX(-90deg);
+    transform-origin: top;
+}
+.back-face::after {
+    bottom: 0;
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+}
+/* inside 3d */
+
+.front-face {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.6rem;
+}
+
+.front-face::before, .front-face::after {
+    background:center/30% url("../images/logos/Volla_logo.png") no-repeat,  linear-gradient(var(--primary), var(--primary));
+}
+
+.back-face {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.4rem 1.6rem;
+    color: var(--udark-3);
+    font-size: 1rem;
+    pointer-events: painted;
+}
+
+.phone-3d-img {
+    width: 100%;
+}
+
+.phone-3d-information {
+    list-style-type: none;
+}
+
+.phone-3d-logo-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phone-3d-logo {
+    transform: rotate(-90deg);
+    width: 2.4rem;
+    filter: invert(1);
+}
+
+.phone-3d-privacy strong{
+    display: block;
+}
+
+
+.box-3d-container-accent1{
+    width: 20rem;
+    position: absolute;
+    top: 0;
+    right: 5%;
+    z-index: -1;
+    opacity: .2;
+    pointer-events: none;
+}
+
+.box-3d-container-accent2{
+    width: 10rem;
+    position: absolute;
+    bottom: -10%;
+    left: 20%;
+    z-index: -1;
+    opacity: .2;
+    pointer-events: none;
+}
+
+.light-mode .box-3d-container-accent1, .light-mode .box-3d-container-accent2 {
+    opacity: .08;
+}
+
+/*##############################*/
+/*         chat box             */
+/*##############################*/
+
+.chat-box {
+    --chat-width : 30rem;
+    --chat-height : 40rem;
+    --chat-size : 4.8rem;
+    position: fixed;
+    bottom: 2.4rem;
+    right: 2.4rem;
+    width: var(--chat-width);
+    height: var(--chat-height);
+    z-index: 9;
+    pointer-events: none;
+}
+
+.expend.chat-box {
+    pointer-events: all;
+}
+
+.chat-expend-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: var(--chat-size);
+    height: var(--chat-size);
+    border-radius: 50%;
+    background-color: var(--dark-4);
+    font-size: 1.8rem;
+    color: var(--text-important);
+    pointer-events: all;
+    z-index: 9;
+    transition: var(--toggle-transition), opacity .3s, visibility .3s;
+}
+
+.expend .chat-expend-btn {
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--toggle-transition), opacity .4s, visibility .4s;
+}
+
+.chat-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-4);
+    border-radius: .4rem;
+    box-shadow: 0 0 3rem rgba(0,0,0, .2);
+    clip-path: circle( 0 at  calc(var(--chat-width) - var(--chat-size) / 2) calc(var(--chat-height) - var(--chat-size) / 2));
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    visibility: hidden;
+    transition: var(--toggle-transition), clip-path .3s, visibility .3s;
+}
+
+
+.expend .chat-container {
+    clip-path: circle(75%);
+    background-color: var(--dark-4);
+    visibility: visible;
+    transition: var(--toggle-transition), clip-path .4s , visibility .4s;
+}
+
+.chat-header {
+    border-bottom: 2px solid var(--dark-5);
+    padding: 1.2rem;
+    text-align: center;
+    display: flex;
+    align-items: flex-start;
+}
+
+.chat-header i {
+    font-size: 1.8rem;
+    color: var(--text-slight);
+}
+
+.chat-header-text {
+    flex-grow: 1;
+}
+
+.chat-name {
+    font-weight: 600;
+    color: var(--text-important);
+    line-height: 1;
+    margin-bottom: .4rem;
+}
+.chat-description {
+    font-size: 1.4rem;
+    color: var(--text-slight);
+    line-height: 1;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    border-bottom: 2px solid var(--dark-5);
+    padding: 1.2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden scroll;
+}
+
+.chat-message {
+    width: fit-content;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: .8rem 1.2rem;
+    border-radius: .8rem;
+    line-height: 1.7;
+    margin-bottom: .4rem;
+    color: var(--text-slight);
+}
+
+.chat-message-me {
+    align-self: flex-end;
+    background-color: var(--dark-6);
+    border-top-right-radius: 0;
+    margin-left: 1.2rem;
+}
+
+.light-mode .chat-message-me {
+    background-color: var(--dark-3);
+}
+
+.chat-message-me + :not(.chat-message-me), .chat-message-you + :not(.chat-message-you){
+    margin-top: .8rem;
+}
+
+.chat-message-you {
+    align-self: flex-start;
+    color: var(--text-on-primary);
+    background-color: var(--primary);
+    border-top-left-radius: 0;
+    margin-right: 1.2rem;
+}
+
+
+.chat-inputs {
+    display: flex;
+}
+
+.chat-input {
+    width: 100%;
+    padding: 1.2rem;
+    background: none;
+    border: none;
+    color: var(--text-important);
+}
+
+.chat-send-btn {
+    padding: 1.2rem;
+    color: var(--text-important);
+    font-size: 1.6rem;
+}
+
+.chat-send-btn:disabled {
+    color: var(--text-slight);
+    cursor: auto;
+}
+
+
+/*#####################*/
+/* feature in section  */
+/*#####################*/
+
+.section-feature-in {
+    padding-top: 1.6rem;
+}
+
+.feature-in-logos {
+    display: flex;
+    justify-content: space-between;
+    gap: 2.4rem;
+
+    overflow-x: scroll;
+}
+
+.feature-in-logos img {
+    height: 2.4rem;
+    filter: brightness(0) contrast(.7);
+}
+
+.light-mode .feature-in-logos img {
+    opacity: .5;
+}
+
+/*#####################*/
+/*   benefits section   */
+/*#####################*/
+
+.section-benefits {
+    background: var(--dark-3);
+}
+
+.section-benefits .heading-2 {
+    padding: 0 10%;
+    margin-bottom: 8rem;
+}
+
+.benefits {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    gap: 4.8rem;
+    padding: 0 10%;
+}
+
+.benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.4rem;
+}
+
+.benefit--first-col {
+    justify-self: end;
+}
+
+.benefit-icon {
+    flex-shrink: 0 ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -1.4rem;
+    width: 4.8rem;
+    height: 4.8rem;
+    padding: 1rem;
+    border-radius: 50%;
+    background-color: var(--primary-o3)
+}
+.benefit-heading {
+    line-height: 1;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.6rem;
+}
+
+
+/*#####################*/
+/*   devices section   */
+/*#####################*/
+.see-more-link {
+    display: block;
+    width: fit-content;
+    margin: 3.2rem auto 0;
+}
+
+
+/*#####################*/
+/*  features section   */
+/*#####################*/
+
+.section-feature {
+    background: var(--dark-3);
+}
+
+.feature-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4.8rem;
+}
+
+
+.features-text .heading-2 {
+    margin-bottom: 2.4rem;
+}
+
+.features-description {
+    font-size: 2rem;
+    margin-bottom: 4.8rem;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2.4rem;
+}
+
+.feature {
+    background: var(--dark-2);
+    padding: 2.4rem;
+    transition: var(--toggle-transition), transform .2s;
+    border-radius: .4rem;
+}
+
+.feature:hover {
+    transform: translateY(-1rem);
+}
+
+.feature:first-child {
+    grid-row: 1 / span 2;
+}
+
+.feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.6rem;
+    width: 4.8rem;
+    height: 4.8rem;
+    padding: 1.2rem;
+    border-radius: 50%;
+    background-color: var(--primary-o3)
+}
+
+.feature-heading {
+    font-size: 2rem;
+    color: var(--text-important);
+    margin-bottom: 1.6rem;
+}
+
+.feature-description {
+    color: var(--text-slight);
+    line-height: 1.7;
+}
+
+
+/*#####################*/
+/*     responsive      */
+/*#####################*/
+
+/* 900px */
+@media (max-width:56.25em) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-text-box {
+        text-align: center;
+        padding: 0 5%;
+    }
+    
+    .hero-description  {
+        padding: 0 10%;
+    }
+    
+    .hero-btns {
+        justify-content: center;
+    }
+
+    .section-benefits .heading-2, .benefits {
+        padding: 0;
+    }
+
+    .feature-container {
+        grid-template-columns: 1fr;
+    }
+
+    .features-text {
+        text-align: center;
+    }
+
+    .features-description {
+        padding: 0 10%;
+    }
+
+    .features {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .feature:first-child {
+        grid-row: 1;
+    }
+}
+
+/* 750px */
+@media (max-width: 46.875em) {
+    .chat-box {
+        --chat-width : 50vw;
+        --chat-height : 70%;
+    }
+
+    .section-popular .heading-2 {
+        text-align: center;
+    }
+}
+
+/* 600px */
+@media (max-width: 37.5em) {
+    .box-3d {
+        --width : 20rem;
+        --height : 34rem;
+        --depth : 4rem;
+    }
+
+    .chat-box {
+        --chat-width : 80vw;
+        --chat-height : 70%;
+    }
+    .section-benefits .heading-2 {
+        margin-bottom: 4.8rem;
+    }
+    .benefits {
+        grid-template-columns: 1fr;
+        gap: 2.4rem;
+    }
+
+    .benefit {
+        background-color: var(--dark-2);
+        padding: 2.4rem;
+        border-radius: .4rem;
+    }
+
+    .features {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* 500px */
+@media (max-width: 31.25em) {
+    .hero-text-box {
+        text-align: center;
+        padding: 0;
+    }
+    
+    .hero-description  {
+        padding: 0;
+    }
+
+    .benefit {
+        flex-direction: column;
+    }
+
+    .benefit-icon {
+        margin-top: 0;
+    }
+
+    .section-popular .heading-2 {
+        text-align: left;
+    }
+
+    .features-description {
+        padding: 0;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+    
+}
