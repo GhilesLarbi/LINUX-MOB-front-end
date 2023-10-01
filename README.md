@@ -1,4 +1,4 @@
-# A fully functional e-comerce front-end
+# A fully functional e-commerce front-end
 
 [Check it out](https://ghileslarbi.github.io/LINUX-MOB-front-end/)
 
